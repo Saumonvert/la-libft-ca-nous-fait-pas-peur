@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: othabchi <othabchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 15:38:32 by othabchi          #+#    #+#             */
-/*   Updated: 2019/10/22 16:54:03 by othabchi         ###   ########.fr       */
+/*   Created: 2019/10/19 21:48:59 by othabchi          #+#    #+#             */
+/*   Updated: 2019/10/23 05:25:44 by othabchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	int		i;
-	int		j;
-	char	*dest;
-
-	i = 0;
-	j = 0;
-	if ((!s1) || (!s2) || (!(dest = malloc(sizeof(char) *
-		(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1)))))
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		dest[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-	{
-		dest[i + j] = s2[j];
-		j++;
-	}
-	dest[i + j] = '\0';
-	return (dest);
+	if (alst && (*alst) && new)
+		new->next = *alst;
+	*alst = new;
 }
