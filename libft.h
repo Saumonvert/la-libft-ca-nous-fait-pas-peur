@@ -6,7 +6,7 @@
 /*   By: othabchi <othabchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 21:00:38 by othabchi          #+#    #+#             */
-/*   Updated: 2019/10/23 05:35:49 by othabchi         ###   ########.fr       */
+/*   Updated: 2019/10/30 16:39:45 by othabchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 char				*ft_strnstr(char const *big, const char *little, size_t n);
 int					ft_atoi(const char *str);
-void				*ft_calloc(size_t nitems, size_t size);
+void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(const char *str);
 
 char				*ft_substr(char const *s, unsigned int start, size_t len);
@@ -64,10 +64,8 @@ void				ft_lstadd_front(t_list **alst, t_list *new);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **alst, t_list *new);
-void				ft_lstdelone(t_list *lst, void (*del)(void *));
+void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
-void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
+void				ft_lstiter(t_list *lst, void (*f) (void *));
 
 #endif

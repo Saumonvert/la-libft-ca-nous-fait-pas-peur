@@ -6,31 +6,28 @@
 /*   By: othabchi <othabchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 16:34:51 by othabchi          #+#    #+#             */
-/*   Updated: 2019/10/11 20:22:43 by othabchi         ###   ########.fr       */
+/*   Updated: 2019/10/30 15:57:53 by othabchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memccpy(void *str1, const void *str2, int c, size_t n)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	*src;
-	unsigned char	*res;
-	unsigned char	d;
+	size_t				i;
+	unsigned char		*d;
+	unsigned const char	*s;
 
 	i = 0;
-	dest = (unsigned char *)str1;
-	src = (unsigned char *)str2;
-	res = 0;
-	d = (unsigned char)c;
-	while ((i < n) && (res == 0))
+	d = (unsigned char*)dest;
+	s = (unsigned const char *)src;
+	while (i < n && (i == 0 || s[i - 1] != (unsigned char)c))
 	{
-		dest[i] = src[i];
-		if (src[i] == d)
-			res = &dest[i + 1];
+		d[i] = s[i];
 		i++;
 	}
-	return (res);
+	if (i > 0 && s[i - 1] == (unsigned char)c)
+		return (d + i);
+	else
+		return (NULL);
 }

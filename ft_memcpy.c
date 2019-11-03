@@ -6,7 +6,7 @@
 /*   By: othabchi <othabchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:55:15 by othabchi          #+#    #+#             */
-/*   Updated: 2019/10/13 21:07:14 by othabchi         ###   ########.fr       */
+/*   Updated: 2019/10/30 16:02:16 by othabchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	*ft_memcpy(void *str1, const void *str2, size_t n)
 		dest[i] = src[i];
 		i++;
 	}
-	return (str1);
+	return (dest);
 }

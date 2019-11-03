@@ -6,7 +6,7 @@
 /*   By: othabchi <othabchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 18:22:24 by othabchi          #+#    #+#             */
-/*   Updated: 2019/10/18 19:43:22 by othabchi         ###   ########.fr       */
+/*   Updated: 2019/10/30 16:28:02 by othabchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
-	char	*t;
+	char	*dest;
 
+	dest = s;
 	i = 0;
-	t = (char *)s;
 	while (i < n)
 	{
-		t[i] = 0;
+		dest[i] = 0;
 		i++;
 	}
 }

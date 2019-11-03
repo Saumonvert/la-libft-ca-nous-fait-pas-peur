@@ -6,27 +6,31 @@
 /*   By: othabchi <othabchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 20:06:33 by othabchi          #+#    #+#             */
-/*   Updated: 2019/10/17 19:04:10 by othabchi         ###   ########.fr       */
+/*   Updated: 2019/10/30 16:52:28 by othabchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_check(char c, char const *set)
+static int	ft_check(char c, char const *set)
 {
 	int i;
 
 	i = 0;
-	while (set[i])
+	if (c && set)
 	{
-		if (c == set[i])
-			return (1);
-		i++;
+		while (set[i])
+		{
+			if (c == set[i])
+				return (1);
+			else
+				i++;
+		}
 	}
 	return (0);
 }
 
-char	*newstr(char *str, int i, int j, int k)
+static char	*newstr(char *str, int i, int j, int k)
 {
 	char	*new;
 
@@ -43,7 +47,7 @@ char	*newstr(char *str, int i, int j, int k)
 	return (new);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		j;
@@ -60,12 +64,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 		k++;
 		i++;
 	}
-	while ((s1[j]) && ft_check(s1[j], set) == 1)
+	if (s1[i] != '\0')
 	{
-		if (s1[i] == '\0')
-			break ;
-		k++;
-		j--;
+		while ((s1[j]) && ft_check(s1[j], set) == 1)
+		{
+			k++;
+			j--;
+		}
 	}
 	new = newstr((char *)s1, i, j, k);
 	return (new);
